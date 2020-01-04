@@ -8,7 +8,7 @@ function getVideo() {
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
         .then(localMediaStream => {
             console.log(localMediaStream);
-            video.src = window.URL.createObjectURL(localMediaStream);
+            video.srcObject = localMediaStream;
             video.play();
         })
         .catch(err => {
@@ -16,7 +16,7 @@ function getVideo() {
         })
 }
 function paintToCanvas() {
-    const width = video.videWidth;
+    const width = video.videoWidth;
     const height = video.videoHeight;
     canvas.width = width;
     canvas.height = height;
@@ -29,7 +29,7 @@ function paintToCanvas() {
         pixels = redEffect(pixels);
         //pixels = rgbSplit(pixels);
         //pixels = greenScreen(pixels);
-        ctx.globalAlpha = 0.8;
+        // ctx.globalAlpha = 0.8;
         //put them back
         ctx.putImageData(pixels, 0, 0)
 
