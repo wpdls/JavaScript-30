@@ -55,8 +55,6 @@
     return hole;
   }
 
-  console.log(randomHole(holes));
-
   function peep() {
     const time = randomTime(100, 1000);
     const hole = randomHole(holes);
@@ -78,7 +76,7 @@
   function bonk(e) {
     if(!e.isTrusted) return; //cheater
     score++;
-    this.classList.remove(up);
+    this.classList.remove('up');
     scoreBoard.textContent = score;
   }
   
